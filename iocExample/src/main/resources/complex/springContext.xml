@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dog1" class="complex.Dog">
+        <property name="dogName" value="小狗1号"></property>
+        <property name="dogColor" value="黑色"></property>
+    </bean>
+
+    <bean id="dog2" class="complex.Dog">
+        <property name="dogName" value="小狗2号"></property>
+        <property name="dogColor" value="白色"></property>
+    </bean>
+
+    <bean id="stu1" class="complex.Student">
+        <property name="stuName" value="李四"></property>
+        <property name="stuSex" value="男"></property>
+        <property name="stuAge" value="88"></property>
+        <property name="stuDog" ref="dog1"></property>
+
+        <!--数组的注入 -->
+        <property name="arrays">
+            <array>
+                <value>"array01"</value>
+                <value>"array02"</value>
+            </array>
+        </property>
+
+        <!--list的注入 -->
+        <property name="listDogs">
+            <list>
+                <ref bean="dog1"></ref>
+                <ref bean="dog2"></ref>
+            </list>
+        </property>
+
+        <!--set的注入 -->
+        <property name="stringSets">
+            <set>
+                <value>"set01"</value>
+                <value>"set02"</value>
+            </set>
+        </property>
+
+        <!--map的注入 -->
+        <property name="mapDogs">
+            <map>
+                <entry key="1号" value-ref="dog1"></entry>
+                <entry key="2号" value-ref="dog2"></entry>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="k1" >"v1"</prop>
+                <prop key="k2">"v2"</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

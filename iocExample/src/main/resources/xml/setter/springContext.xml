@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dog1" class="xml.setter.Dog">
+        <property name="dogName" value="小狗1号"></property>
+        <property name="dogColor" value="黑色"></property>
+    </bean>
+
+    <bean id="stu1" class="xml.setter.Student">
+        <property name="stuName" value="李四"></property>
+        <property name="stuSex" value="男"></property>
+        <property name="stuAge" value="88"></property>
+        <property name="stuDog" ref="dog1"></property>
+    </bean>
+</beans>

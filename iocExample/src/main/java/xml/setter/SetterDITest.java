@@ -1,14 +1,14 @@
-package xml.constructor;
+package xml.setter;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * 构造函数注入
+ * setter注入
  */
-public class ConstructorDITest {
+public class SetterDITest {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xml/constructor/springContext.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xml/setter/springContext.xml");
 
         Student student = (Student) applicationContext.getBean("stu1");
 

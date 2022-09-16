@@ -1,14 +1,12 @@
-package xml.constructor;
+package complex;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * 构造函数注入
- */
-public class ConstructorDITest {
+
+public class ComplexDITest {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xml/constructor/springContext.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("complex/springContext.xml");
 
         Student student = (Student) applicationContext.getBean("stu1");
 
