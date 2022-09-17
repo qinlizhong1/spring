@@ -14,6 +14,12 @@
             <artifactId>spring-context</artifactId>
             <version>5.3.22</version>
         </dependency>
-    </dependencies>
 
+        <!--  @PostConstruct已经从jdk 11版本开始移除了，所以在使用时需要额外引入javax.annotation-api-->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+    </dependencies>
 </project>
