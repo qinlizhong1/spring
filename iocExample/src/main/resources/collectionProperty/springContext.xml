@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="book1" class="collectionProperty.Book">
+        <property name="name" value="射雕英雄传"></property>
+        <property name="price" value="18.88"></property>
+    </bean>
+
+    <bean id="book2" class="collectionProperty.Book">
+        <property name="name" value="笑傲江湖"></property>
+        <property name="price" value="66.66"></property>
+    </bean>
+
+    <!-- 集合元素为自定义类型时注入方法-->
+    <bean id="student" class="collectionProperty.Student">
+        <property name="name" value="张三"></property>
+        <property name="age" value="15"></property>
+
+        <property name="bookArray">
+            <array>
+                <ref bean="book1"></ref>
+                <ref bean="book2"></ref>
+            </array>
+        </property>
+
+
+        <property name="bookList">
+            <list>
+                <ref bean="book1"></ref>
+                <ref bean="book2"></ref>
+            </list>
+        </property>
+
+        <property name="bookSet">
+            <set>
+                <ref bean="book1"></ref>
+                <ref bean="book2"></ref>
+            </set>
+        </property>
+        
+        <property name="bookMap">
+            <map>
+                <entry key="第一本书" value-ref="book1"></entry>
+                <entry key="第二本书" value-ref="book2"></entry>
+            </map>
+        </property>
+    </bean>
+
+
+
+    <!-- 集合元素为8种基本类型以及String类型时注入方法-->
+    <bean id="collectionBasicType" class="collectionProperty.CollectionBasicType">
+        <property name="strings">
+            <array>
+                <value>stringArrayValue1</value>
+                <value>stringArrayValue2</value>
+            </array>
+        </property>
+
+        <property name="stringList">
+            <list>
+                <value>stringList1</value>
+                <value>stringList2</value>
+                <value>stringList1</value>
+            </list>
+        </property>
+
+        <property name="stringSet">
+            <set>
+                <value>stringSet1</value>
+                <value>stringSet2</value>
+                <value>stringSet1</value>
+            </set>
+        </property>
+
+        <property name="stringMap">
+            <map>
+                <entry key="k1" value="v1"></entry>
+                <entry key="k2" value="v2"></entry>
+                <entry key="k1" value="v1"></entry>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="p1">propertiesValue1</prop>
+                <prop key="p2">propertiesValue2</prop>
+                <prop key="p1">propertiesValue1</prop>
+            </props>
+        </property>
+
+    </bean>
+</beans>
