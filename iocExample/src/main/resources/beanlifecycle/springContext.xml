@@ -3,8 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="dog1" class="beanlifecycle.Dog" init-method="initMetod" destroy-method="destroyMethod">
-        <property name="dogName" value="小狗1号"></property>
-        <property name="dogColor" value="黑色"></property>
+
+    <bean id="dog" class="beanlifecycle.Dog" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="age" value="66"></property>
+        <property name="name" value="小黄"></property>
     </bean>
+
+    <bean id="myBeanPostProcessor" class="beanlifecycle.MyBeanPostProcessor"></bean>
 </beans>

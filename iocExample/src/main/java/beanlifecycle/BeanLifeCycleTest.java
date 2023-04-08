@@ -6,13 +6,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class BeanLifeCycleTest {
     public static void main(String[] args) {
-        AbstractApplicationContext abstractApplicationContext = new ClassPathXmlApplicationContext("beanlifecycle/springContext.xml");
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("beanlifecycle/springContext.xml");
 
-        Dog dog = (Dog)abstractApplicationContext.getBean("dog1");
+        Dog dog = (Dog)applicationContext.getBean("dog");
+        System.out.println(dog);
 
-        abstractApplicationContext.close();
-
-        System.out.println("\n" + dog);
+        applicationContext.close();
 
     }
 }
