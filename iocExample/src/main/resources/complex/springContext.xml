@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--实现FactoryBean接口创建复杂对象 -->
-    <bean id="cat1" class="complex.MyFactoryBean"></bean>
+    <context:property-placeholder location="complex/dog.properties"></context:property-placeholder>
 
-    <!--通过静态工厂方式创建复杂对象 -->
-    <bean id="cat2" class="complex.StaticFactory" factory-method="getInstance"></bean>
+    <!-- 实现FactoryBean接口创建复杂对象-->
+    <bean id="dog1" class="complex.MyFactoryBean">
+        <property name="name" value="${factorybean.dog.name}"></property>
+        <property name="age" value="${factorybean.dog.age}"></property>
+    </bean>
 
-    <!--通过实例工厂方式创建复杂对象 -->
-    <bean id="instanceFactory" class="complex.InstanceFactory"></bean>
-    <bean id="cat3" factory-bean="instanceFactory" factory-method="getInstance"></bean>
+    <!-- 静态工厂方式创建复杂对象-->
+    <bean id="dog2" class="complex.StaticFactory" factory-method="getInstance">
+        <property name="name" value="${staticfactory.dog.name}"></property>
+        <property name="age" value="${staticfactory.dog.age}"></property>
+    </bean>
+
+    <!-- 实例工厂方式创建复杂对象-->
+    <bean id="instanceFactory" class="complex.InstanceFactory">
+        <property name="name" value="${instancefactory.dog.name}"></property>
+        <property name="age" value="${instancefactory.dog.age}"></property>
+    </bean>
+
+    <bean id="dog3" factory-bean="instanceFactory" factory-method="getInstance"></bean>
 </beans>

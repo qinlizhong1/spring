@@ -1,7 +1,17 @@
 package complex;
-//通过实例工厂方式创建复杂对象
+
+import lombok.Data;
+
+/**
+ * 实例工厂方式创建复杂对象
+ */
+
+@Data
 public class InstanceFactory {
-    public  Cat getInstance(){
-        return new Cat("小猫3号", 30);
+    private String name;
+    private Integer age;
+
+    public Dog getInstance(){
+        return new Dog(name, age);
     }
 }
