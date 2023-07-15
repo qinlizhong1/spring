@@ -3,21 +3,23 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="teacher" class="typeconversion.Teacher">
-        <property name="name" value="张老师"></property>
-        <property name="age" value="31"></property>
-        <property name="birthday" value="1991-03-21 20:09:21"></property>
+    <bean id="student" class="typeconversion.Student">
+        <property name="name" value="qin"></property>
+        <property name="birthday" value="1992-05-22"></property>
     </bean>
 
-    <!-- 类型转换器注入-->
-    <bean id="myConverter" class="typeconversion.MyConverter"></bean>
+    <!-- 自定义类型转换配置 -->
+    <bean id="myConvert" class="typeconversion.MyConvert">
+        <property name="pattern" value="yyyy-MM-dd"></property>
+    </bean>
 
-    <!--这个id必须为conversionService -->
+    <!-- 注意：这里的id一定要是conversionService，不能是其它值 -->
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <set>
-                <ref bean="myConverter"></ref>
+                <ref bean="myConvert"></ref>
             </set>
         </property>
     </bean>
+
 </beans>
