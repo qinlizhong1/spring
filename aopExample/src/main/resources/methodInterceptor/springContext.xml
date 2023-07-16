@@ -3,13 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="userservice" class="methodbeforeadvice.UserServiceImpl"></bean>
-    <bean id="loginservice" class="methodbeforeadvice.LoginService"></bean>
+    <bean id="userservice" class="methodInterceptor.UserServiceImpl"></bean>
+    <bean id="loginservice" class="methodInterceptor.LoginService"></bean>
 
-    <bean id="myMethodBeforeAdvice" class="methodbeforeadvice.MyMethodBeforeAdvice"></bean>
+    <bean id="myMyMethodInterceptor" class="methodInterceptor.MyMethodInterceptor"></bean>
     <aop:config>
-        <aop:pointcut id="pc" expression="execution(* methodbeforeadvice.*.*(..))"></aop:pointcut>
-        <aop:advisor advice-ref="myMethodBeforeAdvice" pointcut-ref="pc"></aop:advisor>
+        <aop:pointcut id="pc" expression="execution(* methodInterceptor.*.*(..))"></aop:pointcut>
+        <aop:advisor advice-ref="myMyMethodInterceptor" pointcut-ref="pc"></aop:advisor>
     </aop:config>
 
 </beans>
